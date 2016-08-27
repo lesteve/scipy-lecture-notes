@@ -34,7 +34,7 @@ dependencies:
 
 test:
   override:
-    - make clean test
+    - source activate testenv && make clean test
     - source continuous_integration/circle_ci_test_doc.sh
     # workaround - make html returns 0 even if examples fail to build
     - cat ~/log.txt && if grep -q "Traceback (most recent call last):" ~/log.txt; then false; else true; fi
